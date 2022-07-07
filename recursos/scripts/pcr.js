@@ -3,9 +3,10 @@ function pcr(){
     let molde = document.getElementById("secuencia").value;
     let forward = document.getElementById("primerfw").value;
     let reversem =  document.getElementById("primerrv").value;
-    //let circular = document.getElementsByName("forma").name;
+    let circular = document.getElementById("circular").checked;
     let numero = document.getElementById("numero").value;
-    const susituciones = {"A":"T","T":"A","G":"C","C":"G"};
+    if (forward && reversem){
+        const susituciones = {"A":"T","T":"A","G":"C","C":"G"};
     function upper(cadena){
         let resultado = "";
         const may = {"A":"A","T":"T","G":"G","C":"C","a":"A","t":"T","g":"G","c":"C","\n":""};
@@ -14,9 +15,9 @@ function pcr(){
         }
         return resultado;
     }
-    /*if(circular){
+    if(circular){
         molde = molde + molde;
-    }*/
+    }
     molde = upper(molde);
     forward = upper(forward);
     reversem = upper(reversem);
@@ -124,5 +125,6 @@ function pcr(){
         </table>
     </div>
 </div>`)
+    }
 }
 boton.addEventListener("click",pcr);
