@@ -41,7 +41,22 @@ function pcr(){
     for (let ini of fw){
         for (let fin of rv){
             if(ini<fin){
-                productos.push(molde.substring(ini,fin));
+                let bien = true;
+                for (let init of fw){
+                    if (init<fin && init>ini){
+                        bien = false;
+                        break
+                    }
+                }
+                for (let finit of rv){
+                    if (finit<fin && finit>ini){
+                        bien = false;
+                        break
+                    }
+                }
+                if(bien){
+                    productos.push(molde.substring(ini,fin));
+                }
             }
         }
     }
